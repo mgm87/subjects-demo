@@ -1,20 +1,76 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Introduction to Subjects!
   </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<app-bad-button></app-bad-button>
+<app-good-button></app-good-button>
+
+<h2>Subjects:</h2>
+<button mat-raised-button color="primary" (click)="clickAddSub()">Add Subject Subscription</button>
+<button mat-raised-button color="primary" (click)="subjectComplete()">Complete Subject Subscription</button>
+
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let sub of subjectSubscriptions;" [style.background]="'lightblue'">
+    <div>
+      <h3>{{sub.name}}</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let d of sub.data;">
+          {{d}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<h2>Async Subjects:</h2>
+<button mat-raised-button color="primary" (click)="clickAddAsync()">Add Async Subscription</button>
+<button mat-raised-button color="primary" (click)="asyncComplete()">Complete Async Subscription</button>
+
+<mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let sub of asyncSubscriptions;" [style.background]="'#c68dfc'">
+      <div>
+        <h3>{{sub.name}}</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let d of sub.data;">
+            {{d}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+<h2>Behavior Subjects:</h2>
+<button mat-raised-button color="primary" (click)="clickAddBehavior()">Add Behavior Subscription</button>
+<button mat-raised-button color="primary" (click)="behaviorComplete()">Complete Behavior Subscription</button>
+
+<mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let sub of behaviorSubscriptions;" [style.background]="'lightpink'">
+      <div>
+        <h3>{{sub.name}}</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let d of sub.data;">
+            {{d}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+<h2>Replay Subjects:</h2>
+<button mat-raised-button color="primary" (click)="clickAddReplay()">Add Replay Subscription</button>
+<button mat-raised-button color="primary" (click)="replayComplete()">Complete Replay Subscription</button>
+
+<mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let sub of replaySubscriptions;" [style.background]="'lightgreen'">
+      <div>
+        <h3>{{sub.name}}</h3>
+        <mat-list>
+          <mat-list-item *ngFor="let d of sub.data;">
+            {{d}}
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
